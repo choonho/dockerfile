@@ -52,19 +52,6 @@ edit /tmp/cosbench-driver.py
 ~~~text
 URL='http://${MARATHON}/v2/apps/cosbench-driver/tasks'
 NUM_OF_INSTANCES=${NUM_OF_DRIVERS}
-DIC = {
-    'driver01.ocl.softlayer.com':'169.55.112.10',
-    'driver02.ocl.softlayer.com':'169.55.112.20',
-    'driver03.ocl.softlayer.com':'169.55.112.26',
-    'driver04.ocl.softlayer.com':'169.55.112.21',
-    'driver05.ocl.softlayer.com':'169.55.112.29',
-    'driver06.ocl.softlayer.com':'169.55.112.7',
-    'driver07.ocl.softlayer.com':'169.55.112.9',
-    'driver08.ocl.softlayer.com':'169.55.112.11',
-    'driver09.ocl.softlayer.com':'169.55.112.28',
-    'driver10.ocl.softlayer.com':'169.55.112.24',
-}
-
 import urllib2
 import json
 
@@ -88,7 +75,7 @@ for task in tasks:
 [driver%d]
 name = driver%d
 url = http://%s:%s/driver
-""" % (count, count, DIC[task['host']],task['ports'][0])
+""" % (count, count, task['host'],task['ports'][0])
     count = count + 1
 ~~~
 
