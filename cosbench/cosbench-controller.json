@@ -1,0 +1,23 @@
+{
+  "id": "cosbench-controller",
+  "cpus": 1,
+  "mem": 512,
+  "cmd": "/usr/bin/supervisord",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "sunshout/cosbench",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 19088, "hostPort": 0 }
+      ]
+    },
+    "volumes": [
+       {
+            "containerPath": "/usr/local/bin/cosbench/conf/controller.conf",
+            "hostPath": "/var/lib/mesos/user/choonho/controller.conf",
+            "mode": "RO"
+        }
+    ]
+  }
+}

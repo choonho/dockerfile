@@ -1,0 +1,16 @@
+{
+  "id": "cosbench-driver",
+  "cpus": 1,
+  "mem": 512,
+  "cmd": "/usr/bin/supervisord",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "sunshout/cosbench",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 18088, "hostPort": 0 }
+      ]
+    }
+  }
+}
